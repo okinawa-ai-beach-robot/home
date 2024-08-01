@@ -241,7 +241,7 @@ body {
 }
 
 .wrapper {
-	position: relative;
+	/* position: relative;  */
 	max-width: 840px;
 	width: 100%;
 	padding: 0 50px;
@@ -374,7 +374,8 @@ body {
 }
 
 .nav-arrows {
-	display: none;
+	/* display: none; */
+	position: relative;
 }
 
 .nav-arrows a {

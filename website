@@ -40,7 +40,7 @@
             }
         }
         footer { 
-            position: bottom; 
+            position: fixed; 
             bottom: 0; 
             left: 0; 
             z-index: 10;
@@ -96,19 +96,21 @@
     <h1>TBD</h1>
     <div id="slider">
         <figure>
-            <img src="">
-            <img src="">
-            <img src="">
-            <img src="">
+            <img src="C:\Users\andre\OneDrive\Desktop\_cgi-bin_mmwebwx-bin_webwxgetmsgimg__&MsgID=70839570771797268&skey=@crypt_d1e2b980_cf756669f8eac8d7337b5e2646fed22b&mmweb_appid=wx_webfilehelper.jpg">
+            <img src="C:\Users\andre\OneDrive\Desktop\_cgi-bin_mmwebwx-bin_webwxgetmsgimg__&MsgID=8023399182557481549&skey=@crypt_d1e2b980_cf756669f8eac8d7337b5e2646fed22b&mmweb_appid=wx_webfilehelp.jpg">
+            <img src="C:\Users\andre\Downloads\1000002831.jpg">
+            <img src="C:\Users\andre\Downloads\1000003098.jpg">
         </figure>
     </div>
     <div class="textbetween">
-        like purpose and explanation
+        Marine debris has a negative impact on biodiversity, e.g. [1], and various studies point to an additional negative economic impact on communities that depend on tourism. We aim for a small-scale collaborative project with the local community, its primary social impact is to demonstrate and spark student interest in research topics and to raise student awareness of environmental issues. The goal of the project is to support local high school students in the organization and execution of independent research in the field of autonomous robots. The students aim to build a prototype robot capable of locomotion, object recognition, and object manipulation in coastal areas. The target application area is twofold: (1) environmental monitoring, and (2) identification and collection of marine debris. The planned work will be carried out and organized by the students under the supervision and guidance of OIST staff, as a result of a collaborative effort between the Doya Unit and the Tani Unit. Further, the project aims at developing and promoting OIST efforts in environmental protection and community involvement.
+        <!--Jeffery wrote the entire paragraph above. I am not claiming to have written this.-->
     </div>
     <div class="memberimg">
-        <img src="" alt="Image" width="400" height="200">
+        <img src="C:\Users\andre\Downloads\_cgi-bin_mmwebwx-bin_webwxgetmsgimg__&MsgID=4002351186857381109&skey=@crypt_d1e2b980_cf756669f8eac8d7337b5e2646fed22b&mmweb_appid=wx_webfilehelp.jpg" alt="Image" width="400" height="200">
         <div class="text">
-            text talking about members mabye
+            We are comprised of highschoolers and staff from OIST. 
+            Members: (more in depth on each person? also hard to do because new members are currently joining.)
         </div>
     </div>
     <h2>Members</h2>
@@ -117,12 +119,11 @@
             <p>For more info, click <a href="https://github.com/okinawa-ai-beach-robot">Beach</a>.</p>
         </div>
         <div class="footer-center">
-            Maybe social media
+            (Should an instagram account be made?)
         </div>
         <div class="footer-right">
-            mabye phone numbers 
+            Sponsored by OIST 
         </div>
     </footer>
 </body>
 </html>
-<!--this is not done and I do not know what colors to use but I thought light stuff was nice. The large gap is for images. I thought a slider was nice. Text and titles are yet to be decided. I will make it cleaner but I have a fever right now and I need to go eat.-->

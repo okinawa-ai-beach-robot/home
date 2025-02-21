@@ -5,37 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Okinawa AI Beach Robot</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="node_modules/dropzone/dist/dropzone.css">
     <style>
         body { 
-	    margin: 0;
+            margin: 0;
             font-family: Arial, sans-serif;
-	    background: linear-gradient(to bottom, #00bfff 40%, #1e90ff, #f4a261); /* Blue to sand gradient */
+            background: linear-gradient(to bottom, #00bfff 40%, #1e90ff, #f4a261);
             color: white;
             text-align: center;
         }
         .swiper { width: 100vw; height: 50vh; }
         .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
         h1 {
-	    margin-top: 0;
-            background: rgba(255, 255, 255, 0.7); /* Semi-transparent white for contrast */
+            margin-top: 0;
+            background: rgba(255, 255, 255, 0.7);
             padding: 20px;
             font-size: 2em;
             font-weight: bold;
-            color: #1e90ff; /* Deep blue text for better contrast */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for readability */
+            color: #1e90ff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         .contact img {
-            width: 25%; /* Shrinking the LINE QR code */
+            width: 25%;
         }
-
-	/* Define the separator line for all sections */
         section {
-            border-top: 2px solid #f4a261; /* Sand-colored separator line */
-	    margin-top: 0;
+            border-top: 2px solid #f4a261;
+            margin-top: 0;
         }
-
         .news p, .contact p {
             font-size: 1.2em;
+        }
+        .collaboration .dz-message {
+            font-size: 1.2em;
+            color: #1e90ff;
+            margin-bottom: 20px;
+        }
+        .collaboration button {
+            padding: 10px 20px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .collaboration button:hover {
+            background-color: #3399ff;
         }
     </style>
 </head>
@@ -46,12 +60,8 @@
             <div class="swiper-slide"><img src="media/operator.jpg" alt="Initial beach testing"></div>
             <div class="swiper-slide"><img src="media/trash.png" alt="AI detection"></div>
         </div>
-
-        <!-- Navigation buttons (prev/next) -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-
-        <!-- Pagination (dots) -->
         <div class="swiper-pagination"></div>
     </div>
 
@@ -68,13 +78,13 @@
 
     <section class="collaboration">
         <h2>Collaboration</h2>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            <label for="fileUpload">Upload an image:</label>
-            <input type="file" name="fileUpload" id="fileUpload" required>
-            <button type="submit" name="submit">Upload</button>
-        </form>
-    </section>
+        <p>Help teach Beachbot what beach trash looks like.</p>
+        <p>Upload beach trash images here:</p>
+	<div id="imageUpload" class="dropzone"></div>
 
+        <p>When taking photos, try to get low to the ground as if you were seeing through the robot's camera.</p>
+        <button type="submit" form="imageUpload">Submit</button>
+    </section>
 
     <section class="contact">
         <h2>Contact</h2>
@@ -84,6 +94,7 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="main.js"></script>
     <script>
         const swiper = new Swiper('.swiper', {
             loop: true,

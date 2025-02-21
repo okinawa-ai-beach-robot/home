@@ -1,0 +1,9 @@
+services:
+  web:
+    image: php:8.2-apache
+    container_name: my-website
+    volumes:
+      - ../public:/var/www/html
+      - ./php.ini:/usr/local/etc/php/conf.d/custom.ini
+    ports:
+      - "8000:80"

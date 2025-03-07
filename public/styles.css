@@ -1,0 +1,43 @@
+body {
+    background: linear-gradient(to bottom, #006994, #72c1bf, #b8d6c7, #d4b28d, #f3e1b8);
+    background-attachment: fixed;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    text-align: center;
+}
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    color: #004d40;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    padding: 10px 0;
+}
+.swiper { width: 100vw; height: 50vh; }
+.swiper-slide img { width: 100%; height: 100%; object-fit: contain; }
+section { border-top: 2px solid #f4a261; }
+button { padding: 10px 20px; background-color: #1e90ff; color: white; border: none; cursor: pointer; }
+button:hover { background-color: #3399ff; }
+
+#my-dropzone {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 2px dashed #0073e6;
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.dropzone .dz-message {
+    font-size: 1.2em;
+    color: #0073e6;
+}
+
+.dropzone .dz-preview .dz-image img {
+    object-fit: contain;
+}

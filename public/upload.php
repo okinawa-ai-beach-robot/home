@@ -1,39 +1,50 @@
 <?php
+$api_key = getenv('ROBOFLOW_API_KEY'); // Get API Key from environment variable
+$dataset_name = "beach-cleaning-object-detection"; // Dataset Name
 
-require __DIR__ . '/vendor/autoload.php';
+// Check if files were uploaded
+if (isset($_FILES['file']) && !empty($_FILES['file']['tmp_name'])) {
+    $responses = [];
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
+    foreach ($_FILES['file']['tmp_name'] as $key => $tmp_name) {
+        $file = $_FILES['file']['tmp_name'][$key];
+        $file_name = $_FILES['file']['name'][$key];
 
-$request = Request::createFromGlobals();
-$file = $request->files->get('fileUpload');
+        // Setup cURL for file upload
+        $ch = curl_init();
+        $url = "https://api.roboflow.com/dataset/" 
+            . $dataset_name . "/upload"
+            . "?api_key=" . $api_key;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!$file) {
-        die("No file uploaded.");
+        // Prepare the POST fields with the file upload (name only)
+        $postFields = [
+            'name' => $file_name,      // File name
+            'file' => new CURLFile($file, mime_content_type($file), $file_name), // File to upload
+        ];
+
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+
+        // Execute cURL request
+        $result = curl_exec($ch);
+
+        if ($result === false) {
+            $responses[] = "Error uploading $file_name: " . curl_error($ch);
+        } else {
+            $responses[] = "Success: " . $result;
+        }
+
+        // Close cURL handle
+        curl_close($ch);
+
     }
 
-    // Define allowed file types and size limit
-    $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
-    $maxSize = 5 * 1024 * 1024; // 5MB
-
-    if (!in_array($file->getMimeType(), $allowedTypes)) {
-        die("Invalid file type.");
-    }
-
-    if ($file->getSize() > $maxSize) {
-        die("File too large.");
-    }
-
-    // Move file to uploads directory
-    $uploadDir = __DIR__ . '/uploads/';
-    $newFilename = uniqid() . '.' . $file->guessExtension();
-
-    try {
-        $file->move($uploadDir, $newFilename);
-        echo "Upload successful!";
-    } catch (FileException $e) {
-        echo "Upload failed: " . $e->getMessage();
-    }
+    // Send the responses back to the client
+    echo json_encode(['responses' => $responses]);
+} else {
+    echo json_encode(['error' => 'No files uploaded']);
 }
 ?>

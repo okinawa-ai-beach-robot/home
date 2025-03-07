@@ -1,0 +1,296 @@
+Array
+(
+    [file] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot from 2024-11-20 19-48-36.png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot from 2024-11-20 19-48-36.png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => /tmp/phpDpHLpr
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 985404
+                )
+
+        )
+
+)
+Array
+(
+    [file] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot from 2025-01-17 19-28-10.png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot from 2025-01-17 19-28-10.png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => /tmp/phpJUZ7ze
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 502802
+                )
+
+        )
+
+)
+Array
+(
+    [file] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot from 2025-02-28 18-37-21.png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot from 2025-02-28 18-37-21.png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => /tmp/php2cd6mO
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 1176029
+                )
+
+        )
+
+)
+Array
+(
+    [file] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot from 2025-02-28 18-38-22.png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot from 2025-02-28 18-38-22.png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => /tmp/phppxJqWQ
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 1319406
+                )
+
+        )
+
+)
+Array
+(
+    [file] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot from 2024-11-20 19-48-36.png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot from 2024-11-20 19-48-36.png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => /tmp/php5eFcYR
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 985404
+                )
+
+        )
+
+)
+Array
+(
+    [file] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot from 2025-01-17 19-28-10.png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot from 2025-01-17 19-28-10.png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => /tmp/phpj9betn
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 502802
+                )
+
+        )
+
+)
+Array
+(
+    [file] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot from 2025-02-28 18-37-21.png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot from 2025-02-28 18-37-21.png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => /tmp/phpM5px8F
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 1176029
+                )
+
+        )
+
+)
+Array
+(
+    [file] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot from 2025-02-28 18-38-22.png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot from 2025-02-28 18-38-22.png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => /tmp/php11j6V8
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 1319406
+                )
+
+        )
+
+)

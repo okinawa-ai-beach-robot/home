@@ -1,50 +1,66 @@
 <?php
-$api_key = getenv('ROBOFLOW_API_KEY'); // Get API Key from environment variable
-$dataset_name = "beach-cleaning-object-detection"; // Dataset Name
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Check if files were uploaded
-if (isset($_FILES['file']) && !empty($_FILES['file']['tmp_name'])) {
-    $responses = [];
+$api_key = getenv('ROBOFLOW_API_KEY');
+$dataset_name = "beach-cleaning-object-detection";
 
-    foreach ($_FILES['file']['tmp_name'] as $key => $tmp_name) {
-        $file = $_FILES['file']['tmp_name'][$key];
-        $file_name = $_FILES['file']['name'][$key];
+file_put_contents(__DIR__ . '/debug_env.txt', "API_KEY: " . getenv('ROBOFLOW_API_KEY'), FILE_APPEND);
 
-        // Setup cURL for file upload
-        $ch = curl_init();
-        $url = "https://api.roboflow.com/dataset/" 
-            . $dataset_name . "/upload"
-            . "?api_key=" . $api_key;
-
-        // Prepare the POST fields with the file upload (name only)
-        $postFields = [
-            'name' => $file_name,      // File name
-            'file' => new CURLFile($file, mime_content_type($file), $file_name), // File to upload
-        ];
-
-        // Set cURL options
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
-
-        // Execute cURL request
-        $result = curl_exec($ch);
-
-        if ($result === false) {
-            $responses[] = "Error uploading $file_name: " . curl_error($ch);
-        } else {
-            $responses[] = "Success: " . $result;
-        }
-
-        // Close cURL handle
-        curl_close($ch);
-
-    }
-
-    // Send the responses back to the client
-    echo json_encode(['responses' => $responses]);
-} else {
+file_put_contents(__DIR__ . '/debug_upload.txt', print_r($_FILES, true), FILE_APPEND);
+// Check if a file is uploaded
+if (!isset($_FILES['file']) || empty($_FILES['file']['tmp_name'])) {
     echo json_encode(['error' => 'No files uploaded']);
+    http_response_code(400);
+    exit;
 }
+
+// Ensure it's an array
+$files = is_array($_FILES['file']['tmp_name']) ? $_FILES['file']['tmp_name'] : [$_FILES['file']['tmp_name']];
+$file_names = is_array($_FILES['file']['name']) ? $_FILES['file']['name'] : [$_FILES['file']['name']];
+
+$responses = [];
+
+foreach ($files as $key => $tmp_name) {
+    $file_name = $file_names[$key];
+
+    // Roboflow Upload URL
+    $url = "https://api.roboflow.com/dataset/" . $dataset_name . "/upload?api_key=" . $api_key;
+
+    // Prepare the POST fields
+    $postFields = [
+        'name' => $file_name,
+        'file' => new CURLFile($tmp_name, mime_content_type($tmp_name), $file_name)
+    ];
+
+    // cURL request
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+
+    $result = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curl_error = curl_error($ch);
+    curl_close($ch);
+
+    file_put_contents(__DIR__ . '/upload_log.txt', "HTTP_CODE: $http_code\nERROR: $curl_error\nRESULT: $result\n", FILE_APPEND);
+
+    if ($result === false || $http_code >= 400) {
+        $responses[] = [
+            'file' => $file_name,
+            'error' => $curl_error ?: "HTTP $http_code: " . $result
+        ];
+    } else {
+        $responses[] = [
+            'file' => $file_name,
+            'response' => json_decode($result, true)
+        ];
+    }
+}
+
+// Return JSON response
+file_put_contents(__DIR__ . '/upload_log.txt', print_r($responses, true), FILE_APPEND);
+echo json_encode(['responses' => $responses]);
 ?>

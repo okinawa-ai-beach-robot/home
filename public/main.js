@@ -15,18 +15,20 @@ const swiper = new Swiper('.swiper', {
     }
 });
 
-Dropzone.autoDiscover = false; // Disable Dropzone's automatic initialization
-const myDropzone = new Dropzone("#my-dropzone", {
-    url: "upload.php",
-    paramName: "file[]", // Name of the file input
-    maxFilesize: 2, // MB
+Dropzone.autoDiscover = false;  // Prevent auto-instantiation
+
+const myDropzone = new Dropzone("#uploadForm", {
+    paramName: "file[]",
+    maxFilesize: 5, // 5 MB limit per file
     acceptedFiles: "image/*",
     addRemoveLinks: true,
-    dictDefaultMessage: "Drag & drop images here or click to upload",
-    success: function(file, response) {
-        alert("File uploaded successfully: " + file.name);
-    },
-    error: function(file, errorMessage) {
-        alert("Error uploading file: " + errorMessage);
+    dictDefaultMessage: "Drag and drop images here or click to upload.",
+    init: function() {
+        this.on("success", function(file, response) {
+            console.log("Upload successful:", response);
+        });
+        this.on("error", function(file, errorMessage) {
+            console.error("Upload failed:", errorMessage);
+        });
     }
 });

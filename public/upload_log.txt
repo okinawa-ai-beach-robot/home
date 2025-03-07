@@ -1,0 +1,80 @@
+HTTP_CODE: 200
+ERROR: 
+RESULT: {
+    "duplicate": true,
+    "id": "QWPFPLiuaqgTq9ErUd7f"
+}
+Array
+(
+    [0] => Array
+        (
+            [file] => Screenshot from 2024-11-20 19-48-36.png
+            [response] => Array
+                (
+                    [duplicate] => 1
+                    [id] => QWPFPLiuaqgTq9ErUd7f
+                )
+
+        )
+
+)
+HTTP_CODE: 200
+ERROR: 
+RESULT: {
+    "success": true,
+    "id": "MoNseGbvjM1LIdom0WmT"
+}
+Array
+(
+    [0] => Array
+        (
+            [file] => Screenshot from 2025-01-17 19-28-10.png
+            [response] => Array
+                (
+                    [success] => 1
+                    [id] => MoNseGbvjM1LIdom0WmT
+                )
+
+        )
+
+)
+HTTP_CODE: 200
+ERROR: 
+RESULT: {
+    "success": true,
+    "id": "FY1J0L6aewAyA2VdEyPH"
+}
+Array
+(
+    [0] => Array
+        (
+            [file] => Screenshot from 2025-02-28 18-37-21.png
+            [response] => Array
+                (
+                    [success] => 1
+                    [id] => FY1J0L6aewAyA2VdEyPH
+                )
+
+        )
+
+)
+HTTP_CODE: 200
+ERROR: 
+RESULT: {
+    "success": true,
+    "id": "qbb3ds6KsQem3kw0IFsR"
+}
+Array
+(
+    [0] => Array
+        (
+            [file] => Screenshot from 2025-02-28 18-38-22.png
+            [response] => Array
+                (
+                    [success] => 1
+                    [id] => qbb3ds6KsQem3kw0IFsR
+                )
+
+        )
+
+)
